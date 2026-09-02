@@ -1,0 +1,29 @@
+<!-- Container for the funding basket page -->
+<div class="basket-container">
+  <h2>Your Basket</h2>
+
+  <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <ul class="basket-list" *ngIf="basket.length > 0; else emptyBasket">
+    <li *ngFor="let need of basket">
+      <span>{{ need.name }} - ${{ need.cost }} x {{ need.quantity }}</span>
+      <!-- Button to remove item from basket -->
+      <button class="remove-btn" (click)="removeItem(need)">Remove</button>
+    </li>
+  </ul>
+
+  <ng-template #emptyBasket>
+    <p>Your basket is empty.</p>
+  </ng-template>
+
+  <div class="total-section" *ngIf="basket.length > 0">
+    <h3>Total: ${{ getTotalCost() }}</h3>
+  </div>
+
+  <!-- Checkout button -->
+  <!-- Disabled if basket is empty -->
+  <button class="checkout-btn" (click)="checkout()" [disabled]="basket.length === 0">
+    Checkout
+  </button>
+</div>

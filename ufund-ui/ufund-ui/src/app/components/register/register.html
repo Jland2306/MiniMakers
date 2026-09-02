@@ -1,0 +1,36 @@
+<!-- Container for registration page -->
+<div class="login-container">
+  <h2>Create Account</h2>
+   <!-- Registration form -->
+  <form (ngSubmit)="register()">
+    <input
+      type="text"
+      placeholder="Username"
+      [(ngModel)]="username"
+      name="username"
+      required
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+      name="password"
+      required
+    />
+    <!-- Submit button -->
+    <button type="submit">Create Account</button>
+
+  </form>
+  <!-- Submit button -->
+  <p class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </p>
+
+  <!-- Navigation link for existing users -->
+  <p class="switch-text">
+    Already have an account?
+    <a routerLink="/login">Login</a>
+  </p>
+
+</div>

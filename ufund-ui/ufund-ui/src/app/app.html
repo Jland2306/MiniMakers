@@ -1,0 +1,19 @@
+<!-- Navbar html -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <a routerLink="/" class="logo-link">MiniMakers</a>
+  </div>
+  <div class="nav-left">
+    <a routerLink="/login" class="nav-btn" *ngIf="!authService.isLoggedIn()">Login</a>
+    <a routerLink="/needs" class="nav-btn" *ngIf="authService.isLoggedIn()">Needs</a>
+    <a routerLink="/basket" class="nav-btn"
+   *ngIf="authService.getRole() === 'helper'">
+  Checkout
+</a>
+     <button class="nav-btn" *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<main class="content-container">
+  <router-outlet></router-outlet>
+</main>

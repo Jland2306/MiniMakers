@@ -1,0 +1,124 @@
+This document serves as shortcuts and an easier guide to navigate the codebase.
+@Author Lance Cordova
+=======================================
+TIPS:
+- Before pushing a change, ensure the following works:
+    - All test cases pass
+    - running mvn compile exec:java works OK, no build errors
+
+=======================================
+To run or test the ufund-api:
+
+cd ufund-api
+For some reason, you can't use mvn unless you're in this folder 
+
+To run the ufund-api by itself, then:
+mvn compile exec:java                 
+
+=======================================
+
+To run all test files:
+mvn test
+
+To run specific test files:
+mvn -Dtest=<filename> test
+
+Examples -
+mvn -Dtest=NeedTest test
+mvn -Dtest=CupboardControllerTest test
+mvn -Dtest=CupboardFileDAOTest test
+
+=======================================
+
+Stocking the Person
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Lance\",\"cost\":100.00,\"quantity\":10,\"type\":\"STUDENT\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Suhani\",\"cost\":99.99,\"quantity\":12,\"type\":\"STUDENT\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Jordan\",\"cost\":240.00,\"quantity\":2,\"type\":\"STUDENT\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Khushi\",\"cost\":240.00,\"quantity\":2,\"type\":\"STUDENT\"}"
+
+Checking the Person
+curl "http://localhost:8080/cupboard/Khushi" -H "Accept: application/json"
+
+Updating More Needs for Person
+curl -v -X PUT "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Jordan\",\"cost\":99.99,\"quantity\":30,\"type\":\"STUDENT\"}"
+
+Searching/Finding Person
+curl "http://localhost:8080/cupboard/search?query=Jo" -H "Accept: application/json"
+
+Whole Cupboard
+curl "http://localhost:8080/cupboard" -H "Accept: application/json"
+
+Removing a Person
+curl -X DELETE "http://localhost:8080/cupboard/Khushi" -H "Accept: application/json"
+
+
+========= SPRINT 2 ===========================================
+
+Adding a Person into the Basket
+curl -v -X POST "http://localhost:8080/basket" -H "Content-Type: application/json" -d "{\"name\":\"Lance\",\"cost\":100.00,\"quantity\":2,\"type\":\"STUDENT\"}"
+
+curl -v -X POST "http://localhost:8080/basket" -H "Content-Type: application/json" -d "{\"name\":\"Jordan\",\"cost\":240.00,\"quantity\":1,\"type\":\"STUDENT\"}"
+
+View All Needs in Basket
+curl "http://localhost:8080/basket" -H "Accept: application/json"
+
+View Need in Basket
+curl "http://localhost:8080/basket/Lance" -H "Accept: application/json"
+
+Remove Need from Basket
+curl -X DELETE "http://localhost:8080/basket/Lance" -H "Accept: application/json"
+
+Remove Nonexistent Need in Basket
+curl -v -X DELETE "http://localhost:8080/basket/DoesNotExist" -H "Accept: application/json"
+
+=== Checkout Scenarios ===
+== # 1 == Standard Case
+Add items to basket (cupboard already stocked above)
+curl -v -X POST "http://localhost:8080/basket" -H "Content-Type: application/json" -d "{\"name\":\"Lance\",\"cost\":100.00,\"quantity\":2,\"type\":\"STUDENT\"}"
+curl -v -X POST "http://localhost:8080/basket" -H "Content-Type: application/json" -d "{\"name\":\"Jordan\",\"cost\":240.00,\"quantity\":1,\"type\":\"STUDENT\"}"
+
+Perform checkout (should return 200 OK, and reduce cupboard quantity)
+curl -v -X POST "http://localhost:8080/basket/checkout" -H "Accept: application/json"
+
+
+== # 2 == Limited Stock Case
+Add more to basket than cupboard has
+curl -v -X POST "http://localhost:8080/basket" -H "Content-Type: application/json" -d "{\"name\":\"Jordan\",\"cost\":240.00,\"quantity\":10,\"type\":\"STUDENT\"}"
+
+Checkout should return 409 CONFLICT
+curl -v -X POST "http://localhost:8080/basket/checkout" -H "Accept: application/json"
+
+== # 3 == Missing Case
+Add item to basket
+curl -v -X POST "http://localhost:8080/basket" -H "Content-Type: application/json" -d "{\"name\":\"Khushi\",\"cost\":240.00,\"quantity\":1,\"type\":\"STUDENT\"}"
+
+Remove it from cupboard so it is missing
+curl -X DELETE "http://localhost:8080/cupboard/Khushi" -H "Accept: application/json"
+
+Checkout should return 410 GONE
+curl -v -X POST "http://localhost:8080/basket/checkout" -H "Accept: application/json"
+
+========= Website Needs ===========================================
+
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Bridge Builder Kit\",\"cost\":100.00,\"quantity\":10,\"type\":\"Kit\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Solar Power Lab\",\"cost\":120.00,\"quantity\":10,\"type\":\"Lab\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Mini Robotics Pack\",\"cost\":80.00,\"quantity\":10,\"type\":\"Pack\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Tower Builder Kit\",\"cost\":100.00,\"quantity\":10,\"type\":\"Kit\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Material Strength Lab\",\"cost\":120.00,\"quantity\":10,\"type\":\"Lab\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Coding Pack\",\"cost\":80.00,\"quantity\":10,\"type\":\"Pack\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Hydraulic Arm Kit\",\"cost\":100.00,\"quantity\":10,\"type\":\"Kit\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Electronics Pack\",\"cost\":80.00,\"quantity\":10,\"type\":\"Pack\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Circuit Design Lab\",\"cost\":120.00,\"quantity\":10,\"type\":\"Lab\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Wind Turbine Kit\",\"cost\":100.00,\"quantity\":10,\"type\":\"Kit\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Engineering Essentials Pack\",\"cost\":80.00,\"quantity\":10,\"type\":\"Pack\"}"
+curl -X POST "http://localhost:8080/cupboard" -H "Content-Type: application/json" -d "{\"name\":\"Thermal Energy Lab\",\"cost\":120.00,\"quantity\":10,\"type\":\"Lab\"}"
+
+
+
+
+
+
+
+
+
+

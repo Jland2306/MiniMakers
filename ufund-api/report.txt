@@ -1,0 +1,82 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.ufund.api:ufund-api >-----------------------
+[INFO] Building ufund-api 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'destfile' is unknown for plugin 'jacoco-maven-plugin:0.8.11:prepare-agent (jacoco-initialize)'
+[WARNING] Parameter 'datafile' is unknown for plugin 'jacoco-maven-plugin:0.8.11:prepare-agent (jacoco-initialize)'
+[WARNING] Parameter 'destfile' is unknown for plugin 'jacoco-maven-plugin:0.8.11:report (report)'
+[WARNING] Parameter 'datafile' is unknown for plugin 'jacoco-maven-plugin:0.8.11:report (report)'
+[WARNING] Parameter 'destfile' is unknown for plugin 'jacoco-maven-plugin:0.8.11:report (default-cli)'
+[WARNING] Parameter 'datafile' is unknown for plugin 'jacoco-maven-plugin:0.8.11:report (default-cli)'
+[INFO] 
+[INFO] --- clean:3.4.0:clean (default-clean) @ ufund-api ---
+[INFO] Deleting C:\Users\xxpig\Documents\team-project-2026-swen-261-04-6f-team6f\ufund-api\target
+[INFO] 
+[INFO] --- jacoco:0.8.11:prepare-agent (jacoco-initialize) @ ufund-api ---
+[INFO] argLine set to -javaagent:C:\\Users\\xxpig\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.11\\org.jacoco.agent-0.8.11-runtime.jar=destfile=C:\\Users\\xxpig\\Documents\\team-project-2026-swen-261-04-6f-team6f\\ufund-api\\target\\jacoco.exec,append=false
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ufund-api ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ ufund-api ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 6 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ufund-api ---
+[INFO] skip non existing resourceDirectory C:\Users\xxpig\Documents\team-project-2026-swen-261-04-6f-team6f\ufund-api\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ ufund-api ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 4 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ ufund-api ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.ufund.api.ufundapi.controller.CupboardControllerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.389 s -- in com.ufund.api.ufundapi.controller.CupboardControllerTest
+[INFO] Running com.ufund.api.ufundapi.model.NeedTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.ufund.api.ufundapi.model.NeedTest
+[INFO] Running com.ufund.api.ufundapi.persistence.CupboardFileDAOTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.534 s -- in com.ufund.api.ufundapi.persistence.CupboardFileDAOTest
+[INFO] Running com.ufund.api.ufundapi.UfundApiApplicationTests
+21:03:53.372 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.ufund.api.ufundapi.UfundApiApplicationTests]: UfundApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:03:53.639 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.ufund.api.ufundapi.UfundApiApplication for test class com.ufund.api.ufundapi.UfundApiApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.2)
+
+2026-03-03T21:03:54.419-05:00  INFO 26596 --- [           main] c.u.a.ufundapi.UfundApiApplicationTests  : Starting UfundApiApplicationTests using Java 25.0.2 with PID 26596 (started by xxpig in C:\Users\xxpig\Documents\team-project-2026-swen-261-04-6f-team6f\ufund-api)
+2026-03-03T21:03:54.422-05:00  INFO 26596 --- [           main] c.u.a.ufundapi.UfundApiApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2026-03-03T21:03:56.366-05:00  INFO 26596 --- [           main] c.u.a.ufundapi.UfundApiApplicationTests  : Started UfundApiApplicationTests in 2.438 seconds (process running for 7.835)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.348 s -- in com.ufund.api.ufundapi.UfundApiApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.11:report (report) @ ufund-api ---
+[INFO] Loading execution data file C:\Users\xxpig\Documents\team-project-2026-swen-261-04-6f-team6f\ufund-api\target\jacoco.exec
+[INFO] Analyzed bundle 'ufund-api' with 5 classes
+[INFO] 
+[INFO] --- jacoco:0.8.11:report (default-cli) @ ufund-api ---
+[INFO] Loading execution data file C:\Users\xxpig\Documents\team-project-2026-swen-261-04-6f-team6f\ufund-api\target\jacoco.exec
+[INFO] Analyzed bundle 'ufund-api' with 5 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.107 s
+[INFO] Finished at: 2026-03-03T21:03:57-05:00
+[INFO] ------------------------------------------------------------------------

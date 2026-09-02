@@ -1,0 +1,84 @@
+<!-- Main container for displaying all needs -->
+<div class="needs-container">
+  <h2>Available Needs</h2>
+<!-- Manager-only button to open Add Need form -->
+<button 
+  *ngIf="authService.getRole() === 'manager'"
+  class="add-btn"
+  (click)="showAddForm = true">
+  Add Need
+</button>
+ <!-- Add Need Form -->
+<div *ngIf="showAddForm" class="add-form">
+
+  <input [(ngModel)]="newNeed.name" placeholder="Name">
+
+  <input type="number"
+         [(ngModel)]="newNeed.cost"
+         placeholder="Cost">
+
+  <input type="number"
+         [(ngModel)]="newNeed.quantity"
+         placeholder="Quantity">
+
+  <input [(ngModel)]="newNeed.type"
+         placeholder="Type">
+
+  <button (click)="addNeed()">Save</button>
+
+  <button (click)="showAddForm = false">Cancel</button>
+
+</div>
+<!-- Search bar for filtering needs -->
+  <div class="search-box">
+    <input 
+      [(ngModel)]="searchQuery" 
+      (input)="onSearch()" 
+      placeholder="Search for a need..." 
+      class="search-input">
+  </div>
+
+  <!-- Inline basket feedback message -->
+  <p *ngIf="basketMessage" class="basket-message">{{ basketMessage }}</p>
+
+  <!-- Layout for list and detail panel -->
+  <div class="main-layout">
+    <ul class="need-grid">
+      <li *ngFor="let need of needs" (click)="selectNeed(need)" [class.active]="selectedNeed === need">
+        <span class="need-name">{{ need.name }}</span>
+        <span class="need-price">${{ need.cost }}</span>
+      </li>
+    </ul>
+
+    <div class="detail-panel" *ngIf="selectedNeed">
+      <h3>{{ selectedNeed.name }} Details</h3>
+      <p><strong>Type:</strong> {{ selectedNeed.type }}</p>
+      <p><strong>Quantity Available:</strong> {{ selectedNeed.quantity }}</p>
+      <p><strong>Cost per unit:</strong> ${{ selectedNeed.cost }}</p>
+      <hr>
+      <p class="description-text">
+        This is a {{ selectedNeed.type }} resource. We currently have {{ selectedNeed.quantity }} units available for funding.
+      </p>
+  <!-- HELPER ACTION -->
+  <button 
+    class="add-to-cart"
+    *ngIf="authService.getRole() === 'helper'"
+    (click)="addToBasket(selectedNeed)">
+    Add to Checkout
+  </button>
+
+  <!-- MANAGER ACTIONS -->
+  <div *ngIf="authService.getRole() === 'manager'" class="manager-actions">
+     <button class="edit-btn"
+    (click)="startEdit(selectedNeed)">
+      Edit Need
+    </button>
+
+    <button 
+      class="delete-btn"
+      (click)="deleteNeed(selectedNeed.name)">
+      Delete Need
+    </button>
+    </div>
+  </div>
+</div>
