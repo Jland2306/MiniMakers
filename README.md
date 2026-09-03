@@ -1,77 +1,74 @@
-# U-Fund:  _____ _replace with your particular fundraising type_ _____
-# Modify this document to expand any and all sections that are applicable for a better understanding from your users/testers/collaborators (remove this comment and other instructions areas for your FINAL release)
+# MiniMakers
 
-An online U-Fund system built in Java **21** and ___ _replace with other platform requirements_ ___
-  
+**A full-stack e-commerce web application built with Angular and a RESTful API.**
+
+MiniMakers is a full-stack web store where users browse products, manage a cart, and check out, with secure role-based access separating standard shoppers from administrators. Built by a team of four, it pairs an Angular front-end with a Java Spring Boot REST API.
+
+*A collaborative full-stack software engineering project.*
+
+MiniMakers sells engineering kits for children, centered on developing hands-on skills early and giving young learners a head start in engineering.
+
+---
+
+> **Fill in —** Add a screenshot or short GIF of the app here — the storefront and an admin view make a strong pairing. For a repo most reviewers won't run locally, this is the highest-impact thing on the page. Drop the file in a `/screenshots` folder and reference it:
+> `![MiniMakers storefront](screenshots/storefront.png)`
+
+---
+
+## Overview
+
+MiniMakers is a two-tier full-stack application: an Angular single-page front-end (`ufund-ui`) talking to a Java Spring Boot REST API (`ufund-api`). Users can browse the catalog and complete purchases, while a separate administrator tier manages the platform — with access cleanly separated by user privilege.
+
+## Features
+
+- **Product browsing** — Users can explore the catalog through a cohesive, menu-driven interface.
+- **Checkout system** — A shopping flow that takes users from browsing to purchase.
+- **Role-based access** — Two secure privilege tiers, separating standard-user account management from administrative controls.
+- **Cohesive navigation** — Intuitive movement across multiple menus for a smooth end-to-end experience.
+
+## My Contributions
+
+This was a four-person team project. My focus was the front-end and the flows connecting it to the backend:
+
+- Developed the **front-end architecture** in Angular and integrated the backend **RESTful services** that power core features.
+- Implemented **secure user and admin privilege tiers**, enabling differentiated access across the platform.
+- Designed **intuitive navigation and a smooth user experience** across multiple menus, turning backend functionality into a cohesive, user-facing interface.
+
+## Built With
+
+- **Front-end:** Angular, TypeScript
+- **Back-end:** Java, Spring Boot, Maven
+- **API:** RESTful
+
+## Getting Started
+
+Running MiniMakers means starting the two halves in separate terminals.
+
+**Prerequisites:** a Java JDK, Maven, and Node.js with npm.
+
+**Back-end (`ufund-api`):**
+```bash
+cd ufund-api
+mvn compile
+mvn spring-boot:run
+```
+The REST API runs at `http://localhost:8080`.
+
+**Front-end (`ufund-ui`):**
+```bash
+cd ufund-ui
+npm install
+npm start
+```
+Open the app at `http://localhost:4200`.
+
 ## Team
 
-- Jordan Landversicht
-- Lance Cordova
-- Suhani Aggarwal
-- Khushi Relan
+- **Jordan Landversicht** — Front-end development & API integration
+- **Khushi Relan** — Front-end development & API integration
+- **Suhani Aggarwal** — Back-end development & documentation
+- **Lance Cordova** — Back-end development & architecture
 
+## About This Project
 
-## Prerequisites
-
-- Java **21** (Make sure to have correct JAVA_HOME setup in your environment)
-- Maven
--  _add any other tech stack requirements_
-
-
-## How to run it
-
-1. Clone the repository and go to the root directory.
-2. Execute `mvn compile exec:java`; For now, this has to be done in the ...\team-project-2026-swen-261-04-6f-team6f\ufund-api directory
-3. Open in your browser `http://localhost:8080/`
-4.  _add any other steps required or examples of how to use/run_
-
-## Known bugs and disclaimers
-(It may be the case that your implementation is not perfect.)
-
-Document any known bug or nuisance.
-If any shortcomings, make clear what these are and where they are located.
-
-## How to test it
-
-The Maven build script provides hooks for run unit tests and generate code coverage
-reports in HTML.
-
-To run tests on all layers together do this:
-
-1. Execute `mvn clean test jacoco:report`
-2. Open in your browser the file at `PROJECT_API_HOME/target/site/jacoco/index.html`
-
-To run tests on a single layer do this:
-
-1. Execute `mvn clean test-compile surefire:test@layer jacoco:report@layer` where `layer` is one of `api`, `business`, `persistence`
-2. Open in your browser the file at `PROJECT_API_HOME/target/site/jacoco/{api, business, persistence}/index.html`
-
-To run tests on all the layers in isolation do this:
-
-1. Execute `mvn exec:exec@tests-and-coverage`
-2. To view the API layer tests open in your browser the file at `PROJECT_API_HOME/target/site/jacoco/api/index.html`
-3. To view the Business layer tests open in your browser the file at `PROJECT_API_HOME/target/site/jacoco/business/index.html`
-4. To view the Persistence layer tests open in your browser the file at `PROJECT_API_HOME/target/site/jacoco/persistence/index.html`
-
-*(Consider using `mvn clean verify` to attest you have reached the target threshold for coverage)
-  
-  
-## How to generate the Design documentation PDF
-
-1. Access the `PROJECT_DOCS_HOME/` directory
-2. Execute `mvn exec:exec@docs`
-3. The generated PDF will be in `PROJECT_DOCS_HOME/` directory
-
-
-## How to setup/run/test program 
-1. Tester, first obtain the Acceptance Test plan
-2. IP address of target machine running the app
-3. Execute ________
-4. ...
-5. ...
-
-## License
-
-MIT License
-
-See LICENSE for details.
+MiniMakers was built by a team of four as a collaborative software engineering project, applying full-stack development, REST API design, and role-based access control in a real, shipped application.
