@@ -10,8 +10,6 @@ MiniMakers sells engineering kits for children, centered on developing hands-on 
 
 ---
 
-> **Fill in —** Add a screenshot or short GIF of the app here — the storefront and an admin view make a strong pairing. For a repo most reviewers won't run locally, this is the highest-impact thing on the page. Drop the file in a `/screenshots` folder and reference it:
-
 <p align="center">
   <img src="screenshots/homepage.png" width="45%">
   <img src="screenshots/login.png" width="45%">
