@@ -24,7 +24,7 @@ MiniMakers sells engineering kits for children, centered on developing hands-on 
 
 ## Overview
 
-MiniMakers is a two-tier full-stack application: an Angular single-page front-end (`ufund-ui`) talking to a Java Spring Boot REST API (`ufund-api`). Users can browse the catalog and complete purchases, while a separate administrator tier manages the platform — with access cleanly separated by user privilege.
+
 
 ## Features
 
